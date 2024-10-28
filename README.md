@@ -34,13 +34,10 @@ Once the server is running, navigate to:
 
 ## Demo
 
-Here are some screenshots of the application in action:
+Here are some screen recordings of the application in action:
 
-![Create Post](Demo-Videos/Create_Post.webm)
-*Creating a new blog post*
-
-![Delete Post](Demo-Videos/Delete_Post.webm)
-*Deleting a blog post*
+- [Create Post Video](Demo-Videos/Create_Post.webm)
+- [Delete Post Video](Demo-Videos/Delete_Post.webm)
 
 ## Additional Information
 
