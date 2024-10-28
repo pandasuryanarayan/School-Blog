@@ -18,7 +18,7 @@ Ensure you have the following installed on your system:
 
 ## Installation
 
-1. **Activate the virtual environment in the root of the Folder** (adjust path if your environment setup differs):
+1. **Activate the virtual environment in the root of the folder**:
     ```bash
     source myenv/bin/activate
     ```
@@ -31,6 +31,16 @@ Ensure you have the following installed on your system:
 
 Once the server is running, navigate to:
 - [http://127.0.0.1:8000/static/index.html](http://127.0.0.1:8000/static/index.html)
+
+## Demo
+
+Here are some screenshots of the application in action:
+
+![Create Post](Demo-Videos/Create_Post.webm)
+*Creating a new blog post*
+
+![Delete Post](Demo-Videos/Delete_Post.webm)
+*Deleting a blog post*
 
 ## Additional Information
 
