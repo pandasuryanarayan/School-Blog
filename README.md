@@ -36,8 +36,8 @@ Once the server is running, navigate to:
 
 Here are some screen recordings of the application in action:
 
-- [Create Post Video](Demo-Videos/Create_Post.webm)
-- [Delete Post Video](Demo-Videos/Delete_Post.webm)
+- [Create Post Video](Demo-Videos/Create_Post.mp4)
+- [Delete Post Video](Demo-Videos/Delete_Post.mp4)
 
 ## Additional Information
 
