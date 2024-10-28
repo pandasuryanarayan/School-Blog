@@ -1,6 +1,6 @@
 # School-Blog
 
-A simple blog post website created using **MongoDB**, **FastAPI**, and **Pydantic**.
+A simple school blog post website created using **MongoDB**, **FastAPI**, and **Pydantic**.
 
 ## Getting Started
 
