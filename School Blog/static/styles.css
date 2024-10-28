@@ -1,0 +1,145 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
+    background-color: #f0f2f5; /* Soft light gray background for a modern feel */
+    color: #333; /* Darker text for better readability */
+    margin: 0;
+    padding: 20px;
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px; /* Limit the maximum width of the container */
+    margin: auto; /* Center the container */
+    padding: 20px;
+    background: white; /* White background for the container */
+    border-radius: 10px; /* More rounded corners for a softer look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for elevation */
+}
+
+/* Header styles */
+h1 {
+    text-align: center; /* Center the header */
+    color: #4A90E2; /* Blue color for the header */
+    margin-bottom: 20px; /* Space below the header */
+    font-size: 2.5em; /* Larger font size for the title */
+}
+
+/* Flexbox layout for form and posts */
+.content {
+    display: flex; /* Use flexbox for layout */
+    gap: 20px; /* Space between form and posts */
+    height: calc(100vh - 100px); /* Adjust height to allow for a full-page layout */
+    align-items: center; /* Center items vertically */
+}
+
+/* Form styles */
+form {
+    flex: 1; /* Allow the form to take up available space */
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 15px; /* Space between form elements */
+    justify-content: center; /* Center the form items vertically */
+}
+
+/* Input and textarea styles */
+input[type="text"], textarea {
+    padding: 15px; /* Increased padding for comfort */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 16px; /* Increase font size */
+    transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #4A90E2; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styles */
+button {
+    padding: 10px; /* Reduced padding inside the button */
+    background-color: #4A90E2; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Posts container styles */
+#posts {
+    flex: 2; /* Allow the posts section to take up more space */
+    margin-top: 20px; /* Space above the posts container */
+    max-height: 500px; /* Set a maximum height for the posts section */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Padding inside the posts section */
+}
+
+/* Individual post styles */
+.post {
+    padding: 20px; /* Padding inside each post */
+    border: 1px solid #ddd; /* Light gray border around posts */
+    border-radius: 5px; /* Slightly rounded corners */
+    margin-bottom: 20px; /* Space below each post */
+    background: #fff; /* White background for posts */
+    transition: box-shadow 0.3s; /* Smooth shadow transition */
+}
+
+.post-header {
+    display: flex; /* Use flexbox for header layout */
+    justify-content: space-between; /* Space between title and delete button */
+    align-items: center; /* Align items vertically centered */
+}
+
+/* Increase font size for better readability */
+.post h2 {
+    font-size: 1.8em; /* Larger title font size */
+    margin: 0 0 10px 0; /* Margin below title */
+}
+
+.post p {
+    font-size: 1.2em; /* Larger content font size */
+    margin: 10px 0; /* Space above and below paragraph */
+}
+
+/* Small text styles for author and date */
+small {
+    color: #888; /* Lighter color for the author/date text */
+    display: block; /* Make date and author appear on new line */
+    margin-top: 10px; /* Space above the small text */
+}
+
+/* Delete button styles */
+button.delete {
+    background-color: #e74c3c;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.delete:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+    /* Stack form and posts on smaller screens */
+    .content {
+        flex-direction: column; /* Stack vertically */
+    }
+}

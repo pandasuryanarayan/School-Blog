@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>School Blog</h1>
+        <div class="content">
+            <form id="postForm">
+                <input type="text" id="title" placeholder="Title" required />
+                <textarea id="content" placeholder="Content" required></textarea>
+                <input type="text" id="author" placeholder="Author" required />
+                <button type="submit">Create Blog Post</button>
+            </form>
+            <div id="posts"></div>
+        </div>
+    </div>
+    <script>
+        document
+            .getElementById("postForm")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault();
+                const id = Date.now().toString(); // Generate unique ID from timestamp
+                const title = document.getElementById("title").value;
+                const content = document.getElementById("content").value;
+                const author = document.getElementById("author").value;
+
+                // Send data to create a post
+                const response = await fetch("/posts/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ id, title, content, author }),
+                });
+
+                if (response.ok) {
+                    document.getElementById("postForm").reset();
+                    loadPosts(); // Reload posts
+                } else {
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.detail}`);
+                }
+            });
+
+        async function loadPosts() {
+            const response = await fetch("/posts/");
+            const posts = await response.json();
+            const postsContainer = document.getElementById("posts");
+            postsContainer.innerHTML = "";
+
+            // Check if there are no posts
+            if (posts.length === 0) {
+                // Create a message element for no posts
+                const noPostsMessage = document.createElement("div");
+                noPostsMessage.textContent = "No posts available"; // Message text
+                noPostsMessage.style.fontSize = "24px"; // Font size
+                noPostsMessage.style.fontWeight = "bold"; // Font weight
+                noPostsMessage.style.color = "#3498db"; // Color of the message
+                noPostsMessage.style.textAlign = "center"; // Center the text
+                noPostsMessage.style.marginTop = "20px"; // Space above the message
+                postsContainer.appendChild(noPostsMessage); // Append the message to the container
+                return; // Exit the function
+            }
+
+            posts.forEach((post) => {
+                const postElement = document.createElement("div");
+                postElement.classList.add("post");
+                postElement.innerHTML = `
+                <div class="post-header">
+                    <h2>${post.title}</h2>
+                    <button class="delete" onclick="deletePost('${post.id}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512" style="fill: white;">
+                            <path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                        </svg>
+                    </button>
+        </div>
+        <p>${post.content}</p>
+        <small>By ${post.author} on ${post.createdAt}</small>
+    `;
+                postsContainer.appendChild(postElement);
+            });
+        }
+
+        async function deletePost(postId) {
+            const response = await fetch(`/posts/${postId}`, {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+                loadPosts(); // Reload posts
+            } else {
+                alert("Error deleting post");
+            }
+        }
+
+        // Load posts on page load
+        loadPosts();
+    </script>
+</body>
+
+</html>
