@@ -6,7 +6,7 @@ A simple school blog post website created using **MongoDB**, **FastAPI**, and **
 
 To get started with this project, follow these steps:
 
-1. **Download and Extract** the ZIP file of this project.
+1. **Download and Extract** the ZIP file of this project provided.
 2. **Open** the project folder in your preferred editor (e.g., VS Code) or in a terminal.
 
 ## Prerequisites
